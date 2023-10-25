@@ -1,0 +1,40 @@
+{
+  "medidor": {
+    "labels": ["ms"],
+    "values": [25]
+  },
+  "pizza": {
+    "labels": ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
+    "values": [11, 2, 5, 2, 4]
+  },
+  "graficoColunas": {
+    "title": "Company Performance",
+    "subtitle": "Vendas, Despesas, and Lucro: 2020-2023",
+    "ano": ["2020", "2021", "2022", "2023"],
+    "vendas": [1000, 1170, 660, 1030],
+    "despesas": [400, 460, 1120, 540],
+    "lucro": [200, 250, 300, 350]
+  },
+  "graficoBarrasHorizontais": {
+    "title": "Population of Largest U.S. Cities",
+    "hAxisSubtitle": "Total Population",
+    "vAxisSubtitle": "City",
+    "hAxisMinValue": 0,
+    "city": [
+      "New York City, NY",
+      "Los Angeles, CA",
+      "Chicago, IL",
+      "Houston, TX",
+      "Philadelphia, PA"
+    ],
+    "populationLabel": ["2010 população", "2000 população"],
+    "population1": [8175000, 3792000, 2695000, 2099000, 1526000],
+    "population2": [8008000, 3694000, 2896000, 1953000, 1517000]
+  },
+  "graficoLinhasEvolutivas": {
+    "title": "Desempenho da Empresa",
+    "ano": ["2004", "2005", "2006", "2007"],
+    "vendas": [1000, 1170, 660, 1030],
+    "despesas": [400, 460, 1120, 540]
+  }
+}

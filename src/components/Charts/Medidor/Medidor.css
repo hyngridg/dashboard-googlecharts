@@ -1,0 +1,14 @@
+.bg-NORMAL,
+.bg-LENTO,
+.bg-CRITICO {
+  color: #fff !important;
+}
+.bg-NORMAL {
+  background-color: #109618;
+}
+.bg-LENTO {
+  background-color: #ff9900;
+}
+.bg-CRITICO {
+  background-color: #dc3912;
+}
