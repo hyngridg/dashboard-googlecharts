@@ -1,13 +1,6 @@
+import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import "./GraficoColunas.css";
-
-export const data = [
-  ["Ano", "Vendas", "Despesas", "Lucro"],
-  ["2020", 1000, 400, 200],
-  ["2021", 1170, 460, 250],
-  ["2022", 660, 1120, 300],
-  ["2023", 1030, 540, 350],
-];
 
 export const options = {
   chart: {
@@ -17,6 +10,41 @@ export const options = {
 };
 
 function GraficoColunas() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Carregue os dados do arquivo JSON
+        const response = await fetch("./data/chartData.json");
+        const chartData = await response.json();
+
+        // Atualize o estado com os dados do arquivo JSON
+        setData([
+          ["Ano", "Vendas", "Despesas", "Lucro"],
+          ...chartData.graficoColunas.ano.map((ano, index) => [
+            ano,
+            chartData.graficoColunas.vendas[index],
+            chartData.graficoColunas.despesas[index],
+            chartData.graficoColunas.lucro[index],
+          ]),
+        ]);
+      } catch (error) {
+        console.error("Erro ao carregar os dados do JSON:", error);
+      }
+    };
+
+    fetchData();
+
+    const id = setInterval(() => {
+      fetchData();
+    }, 3000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
   return (
     <>
       <Chart

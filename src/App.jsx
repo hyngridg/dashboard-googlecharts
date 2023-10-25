@@ -9,7 +9,7 @@ import GraficoColunas from "./components/Charts/GraficoColunas";
 import GraficoTabela from "./components/Charts/GraficoTabela";
 import GraficoBarrasHorizontais from "./components/Charts/GraficoBarrasHorizontais";
 import GraficoLinhasEvolutivas from "./components/Charts/GraficoLinhasEvolutivas";
-import chartData from "./data/chartData.json";
+import chartData from "../data/chartData.json";
 
 function App() {
   const statusGrafico = [

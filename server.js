@@ -1,18 +1,32 @@
 import express from "express";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
+// Obter o caminho do diretório do módulo atual
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // Rota para obter os dados do gráfico
 app.get("/chart-data", (req, res) => {
-  // Suponha que os dados do gráfico estejam em um arquivo JSON ou sejam gerados dinamicamente
-  const chartData = {
-    labels: ["Label 1", "Label 2", "Label 3"],
-    values: [12, 30, 45],
-  };
+  const chartDataPath = path.join(__dirname, "data", "chartData.json");
 
-  res.json(chartData);
+  // Lê o arquivo "chartData.json"
+  fs.readFile(chartDataPath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Erro ao ler o arquivo chartData.json:", err);
+      return res.status(500).json({ error: "Erro ao ler o arquivo" });
+    }
+
+    // Envia os dados como resposta
+    res.json(JSON.parse(data));
+  });
 });
 
 app.listen(port, () => {

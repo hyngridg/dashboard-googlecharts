@@ -1,13 +1,6 @@
+import { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
 import "./GraficoLinhasEvolutivas.css";
-
-export const data = [
-  ["Ano", "Vendas", "Despesas"],
-  ["2004", 1000, 400],
-  ["2005", 1170, 460],
-  ["2006", 660, 1120],
-  ["2007", 1030, 540],
-];
 
 export const options = {
   title: "Desempenho da Empresa",
@@ -16,6 +9,40 @@ export const options = {
 };
 
 function GraficoLinhasEvolutivas() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Carregue os dados do arquivo JSON
+        const response = await fetch("./data/chartData.json");
+        const chartData = await response.json();
+
+        // Atualize o estado com os dados do arquivo JSON
+        setData([
+          ["Ano", "Vendas", "Despesas"],
+          ...chartData.graficoLinhasEvolutivas.ano.map((ano, index) => [
+            ano,
+            chartData.graficoLinhasEvolutivas.vendas[index],
+            chartData.graficoLinhasEvolutivas.despesas[index],
+          ]),
+        ]);
+      } catch (error) {
+        console.error("Erro ao carregar os dados do JSON:", error);
+      }
+    };
+
+    fetchData();
+
+    const id = setInterval(() => {
+      fetchData();
+    }, 3000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
+
   return (
     <>
       <Chart
