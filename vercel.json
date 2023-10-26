@@ -2,8 +2,8 @@
   "routes": [
     {
       "handle": "filesystem",
-      "src": "/data/(.*)",
-      "dest": "../data/$1"
+      "src": "/chartData.json",
+      "dest": "data/chartData.json"
     }
   ]
 }
