@@ -16,7 +16,9 @@ function GraficoTabela() {
     const fetchData = async () => {
       try {
         // Carregue os dados do arquivo JSON
-        const response = await fetch("./data/chartData.json");
+        const response = await fetch(
+          import.meta.env.BASE_URL + "data/chartData.json"
+        );
         const chartData = await response.json();
 
         // Atualize o estado com os dados do arquivo JSON
