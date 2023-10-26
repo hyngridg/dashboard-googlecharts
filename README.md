@@ -1,5 +1,7 @@
 ## Aplicação Dashboard utilizando gráficos Google Charts
 
+🚀 EM ANDAMENTO | Projeto e documentação 🚀
+
 ### Desafio
 
 Meu desafio foi de criar um dashboard web onde deveriam conter gráficos utilizando o serviço interativo Google Charts. E neste repositório aqui você terá acesso ao código fonte de como desenvolvi a solução.
@@ -33,7 +35,12 @@ Meu desafio foi de criar um dashboard web onde deveriam conter gráficos utiliza
 | GitHub          |           |
 | Google Charts   |           |
 
-### Fontes e Documentação
+### Data (mock API)
+
+Fonte de dados em JSON estático criado manualmente por mim para incorporar diretamente na aplicação como um recurso a ser usado durante o desenvolvimento e testes, servindo como preparo para integração de uma futura API real.
+`http://localhost:3000/chart-data`
+
+### Fontes e Documentações
 
 - Documentação oficial do Google Charts: https://developers.google.com/chart?hl=pt-br
 - React Google Charts: https://www.react-google-charts.com/
@@ -41,7 +48,5 @@ Meu desafio foi de criar um dashboard web onde deveriam conter gráficos utiliza
 
 ### URLs em produção
 
-- Servidor Node js:
-- Front end:
-
-🚀 EM ANDAMENTO | Projeto e documentação 🚀
+- Servidor Node js: ...
+- Front end: ...
